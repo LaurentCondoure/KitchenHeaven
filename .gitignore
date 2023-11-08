@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs
+/1_Specifications/TheMealDb_API/TheMealDb_API/bin/Debug/net6.0
+/1_Specifications/TheMealDb_API/TheMealDb_API/obj
