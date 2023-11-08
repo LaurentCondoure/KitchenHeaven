@@ -5,6 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <BaseOutputPath>C:\LCO\Privé\exo\Kitchen Heaven Project\KitchenHeavenProject2\KitchenHeaven\1_Specifications\TheMealDb_API\API Samples</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
