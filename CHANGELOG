@@ -8,18 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - 1-Specifications/Diagrams/Communication diagram/ConsultMeal_Communication.vsdx
-- 1-Specifications/Diagrams/Communication diagram/AddRestaurant_Communication.vsdx
 - 1-Specifications/Diagrams/Class diagram/KitchenHeaven_Class.vsdx
 - 1-Specifications/Diagrams/Activity diagram/AddRestaurant_Activity.vsdx
 - 1-Specifications/Diagrams/Activity diagram/ConsultMeal_Activity.vsdx
 - 1-Specifications/Diagrams/Interaction Overview diagram/
-- 1-Specifications/Database/KitchenHeaven_Schema.vsdx
 
 
-
-## [0.0.1]
+## [1.0.1]
 ### Added
-- Initialisation 
+- 1-Specifications/Database/KitchenHeaven_Schema.vsdx
+- 1-Specifications/Diagrams/Communication diagram/AddRestaurant_Communication.vsdx 
+
+### Modified
+- 1-Specifications/Diagrams/Sequence diagram/AddRestaurant_Sequence.vsdx
 
 ## [1.0.0]
 ### Added
@@ -32,7 +33,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 1-Specifications/Diagrams/Use-case diagram/ConsultMenu_UseCase.vsdx
 - 1-Specifications/Diagrams/Sequence diagram/ConsultMeal_Sequence.vsdx
 - 1-Specifications/Diagrams/Sequence diagram/AddRestaurant_Sequence.vsdx
+- 1-Specifications/Database/KitchenHeaven_Schema.vsdx
 
 
 ### Updated
 - TheMealDb_API output folder is now set in \1_Specifications\TheMealDb_API\API Samples\
+
+## [0.0.1]
+### Added
+- Initialisation
