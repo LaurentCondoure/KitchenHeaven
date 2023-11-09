@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 1-Specifications/Diagrams/Interaction Overview diagram/
 
+## [1.0.4]
+### Added
+- 1-Specifications/UserStories/AddRestaurant_UserStories.md
+- 1-Specifications/UserStories/Consult_UserStories.md
+
 ## [1.0.3]
 ### Added
 - 1-Specifications/Diagrams/Communication diagram/ConsultMeal_Communication.vsdx
