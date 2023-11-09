@@ -7,8 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- 1-Specifications/Diagrams/Communication diagram/ConsultMeal_Communication.vsdx
+
 - 1-Specifications/Diagrams/Interaction Overview diagram/
+
+## [1.0.3]
+### Added
+- 1-Specifications/Diagrams/Communication diagram/ConsultMeal_Communication.vsdx
+
+### Modified
+- 1-Specifications/Diagrams/Communication diagram/AddRestaurant_Communication.vsdx
+- 1-Specifications/Diagrams/Activity diagram/AddMeal_Activity.vsdx
+- 1-Specifications/Diagrams/Class diagram/KitchenHeaven_Class.vsdx
 
 ## [1.0.2]
 ### Added
