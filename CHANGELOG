@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-
-- 1-Specifications/Diagrams/Interaction Overview diagram/
+## [1.1.1]
+### Modified
+- 1-Specifications/Diagrams/Interaction Overview diagram/F4_ConsultMealDetails_InteractionOverview.vsdx
+- 1-Specifications/Diagrams/Interaction Overview diagram/F5_AddMealToMenu_InteractionOverview.vsdx
+- 1-Specifications/Diagrams/Activity diagram/AddMeal_Activity.vsdx
+- 1-Specifications/Diagrams/Activity diagram/AddRestaurant_Activity.vsdx
+- 1-Specifications/Diagrams/Activity diagram/ConsultMeal_Activity.vsdx
+- 1-Specifications/Diagrams/Class diagram/KitchenHeaven_Class.vsdx
 
 ## [1.1.0]
 ### Added
