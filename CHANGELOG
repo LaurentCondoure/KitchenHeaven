@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- 1-Specifications/Front/Presentation.docx
+- 2-Architecture/Explanations.docx
+
+## [1.1.3]
+### Modified
+- 1-Specifications/Diagrams/Interaction Overview diagram/F4_ConsultMealDetails_InteractionOverview.vsdx
+- 1-Specifications/Diagrams/Interaction Overview diagram/F5_AddMealToMenu_InteractionOverview.vsdx
 
 ## [1.1.2]
 ### Modified
