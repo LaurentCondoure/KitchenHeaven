@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KitchenHeaven.FrameWork.DataAccess\KitchenHeaven.FrameWork.DataAccess.csproj" />
+    <ProjectReference Include="..\KitchenHeaven.FrameWork.Entities\KitchenHeaven.FrameWork.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+</Project>

@@ -8,6 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
+## [1.2.0]
+### Added
+- Project KitchenHeaven.FrameWork.DataAccess
+- Project KitchenHeaven.FrameWork.DataAccess.Tests
+_ Project KitchenHeaven.FrameWork.Service
+- Project KitchenHeaven.FrameWork.Service.Tests
+- Project KitchenHeaven.FrameWork.DataAccess.Entities
+- KitchenHeaven.FrameWork.DataAccess Initialisation
+
+### Modified
+- 1-Specifications/Diagrams/KitchenHeaven_Classes.vsdx
+- 2-Architecture/KitchenHeaven Architecture.docx
+
+
+
 ## [1.1.5]
 ### Modified
 - 1-Specifications/UI/KitchenHeaven.Presentation.docx

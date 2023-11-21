@@ -5,11 +5,29 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Specifications", "1_Specifications", "{56E3F93A-95DE-4FFB-BDF8-ED0F62FD1973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheMealDb_API", "1_Specifications\TheMealDb_API\TheMealDb_API\TheMealDb_API.csproj", "{977BB8F8-123F-4A53-9EBA-DA3BADF886A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheMealDb_API", "1_Specifications\TheMealDb_API\TheMealDb_API\TheMealDb_API.csproj", "{977BB8F8-123F-4A53-9EBA-DA3BADF886A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TheMealDb_API", "TheMealDb_API", "{A49AA3CF-97B6-4108-B8F9-EA032B096331}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Project", "3_Project", "{27020E55-3BB5-4052-8C8D-234C2F1D69AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenHeaven.FrameWork.DataAccess", "3_Projects\KitchenHeaven.FrameWork\KitchenHeaven.FrameWork.DataAccess\KitchenHeaven.FrameWork.DataAccess.csproj", "{CE04C35A-4457-4237-B00F-60604C742C30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KitchenHeaven.FrameWork", "KitchenHeaven.FrameWork", "{EA9913F8-BAF5-4926-BBBB-582E09B7D9EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{CB6F805B-1D12-4CA1-AC9C-90FD68DF8AFE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenHeaven.FrameWork.DataAccess.Tests", "3_Projects\KitchenHeaven.FrameWork\KitchenHeaven.FrameWork.DataAccess.Tests\KitchenHeaven.FrameWork.DataAccess.Tests.csproj", "{172CABE4-43E4-45FE-BF50-428D5F5CE576}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{8E4F0B34-EC20-4C77-86BE-985149C0E8C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenHeaven.FrameWork.Service", "3_Projects\KitchenHeaven.FrameWork\KitchenHeaven.FrameWork.Service\KitchenHeaven.FrameWork.Service.csproj", "{C96E187D-C7AC-4F48-8670-56E95CC03F90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenHeaven.FrameWork.Service.Tests", "3_Projects\KitchenHeaven.FrameWork\KitchenHeaven.FrameWork.Service.Tests\KitchenHeaven.FrameWork.Service.Tests.csproj", "{D416AFC4-2A42-4D1C-8CE5-7DE5694A52A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{DEB2EC0D-6585-440A-B153-9D893082E8FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenHeaven.FrameWork.Entities", "3_Projects\KitchenHeaven.FrameWork\KitchenHeaven.FrameWork.Entities\KitchenHeaven.FrameWork.Entities.csproj", "{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +39,26 @@ Global
 		{977BB8F8-123F-4A53-9EBA-DA3BADF886A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{977BB8F8-123F-4A53-9EBA-DA3BADF886A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{977BB8F8-123F-4A53-9EBA-DA3BADF886A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE04C35A-4457-4237-B00F-60604C742C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE04C35A-4457-4237-B00F-60604C742C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE04C35A-4457-4237-B00F-60604C742C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE04C35A-4457-4237-B00F-60604C742C30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172CABE4-43E4-45FE-BF50-428D5F5CE576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172CABE4-43E4-45FE-BF50-428D5F5CE576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172CABE4-43E4-45FE-BF50-428D5F5CE576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172CABE4-43E4-45FE-BF50-428D5F5CE576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96E187D-C7AC-4F48-8670-56E95CC03F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96E187D-C7AC-4F48-8670-56E95CC03F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96E187D-C7AC-4F48-8670-56E95CC03F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96E187D-C7AC-4F48-8670-56E95CC03F90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D416AFC4-2A42-4D1C-8CE5-7DE5694A52A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D416AFC4-2A42-4D1C-8CE5-7DE5694A52A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D416AFC4-2A42-4D1C-8CE5-7DE5694A52A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D416AFC4-2A42-4D1C-8CE5-7DE5694A52A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -28,6 +66,15 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{977BB8F8-123F-4A53-9EBA-DA3BADF886A4} = {A49AA3CF-97B6-4108-B8F9-EA032B096331}
 		{A49AA3CF-97B6-4108-B8F9-EA032B096331} = {56E3F93A-95DE-4FFB-BDF8-ED0F62FD1973}
+		{CE04C35A-4457-4237-B00F-60604C742C30} = {CB6F805B-1D12-4CA1-AC9C-90FD68DF8AFE}
+		{EA9913F8-BAF5-4926-BBBB-582E09B7D9EC} = {27020E55-3BB5-4052-8C8D-234C2F1D69AE}
+		{CB6F805B-1D12-4CA1-AC9C-90FD68DF8AFE} = {EA9913F8-BAF5-4926-BBBB-582E09B7D9EC}
+		{172CABE4-43E4-45FE-BF50-428D5F5CE576} = {CB6F805B-1D12-4CA1-AC9C-90FD68DF8AFE}
+		{8E4F0B34-EC20-4C77-86BE-985149C0E8C8} = {EA9913F8-BAF5-4926-BBBB-582E09B7D9EC}
+		{C96E187D-C7AC-4F48-8670-56E95CC03F90} = {8E4F0B34-EC20-4C77-86BE-985149C0E8C8}
+		{D416AFC4-2A42-4D1C-8CE5-7DE5694A52A8} = {8E4F0B34-EC20-4C77-86BE-985149C0E8C8}
+		{DEB2EC0D-6585-440A-B153-9D893082E8FD} = {EA9913F8-BAF5-4926-BBBB-582E09B7D9EC}
+		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E} = {DEB2EC0D-6585-440A-B153-9D893082E8FD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED2962A4-DC08-4CB0-987A-8644DB4A040C}
