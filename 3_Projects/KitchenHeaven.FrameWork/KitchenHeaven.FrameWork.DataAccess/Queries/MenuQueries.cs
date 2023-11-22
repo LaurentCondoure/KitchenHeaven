@@ -6,7 +6,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 {
     public static class MenuQueries
     {
-        public static string GetMealByExternalId =>
+        public const string GetMealByExternalId =
             @"SELECT
                 meal.id
               FROM
@@ -17,7 +17,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
                 me.externatId = @externalId;
             ";
 
-        public static string Add =>
+        public const string Add =
             @"INSERT INTO Menu
                 (restaurantId, mealId)
               VALUS

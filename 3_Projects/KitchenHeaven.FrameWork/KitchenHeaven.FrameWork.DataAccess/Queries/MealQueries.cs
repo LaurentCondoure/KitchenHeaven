@@ -6,7 +6,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 {
     public static class MealQueries
     {
-        public static string MealById =>
+        public const string GetById =
             @"SELECT
                 *
               FROM
@@ -14,7 +14,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
               WHERE
                 id = @id";
 
-        public static string MealByExternalId =>
+        public const string GetByExternalId =
             @"SELECT
                 *
               FROM
@@ -22,7 +22,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
               WHERE
                 externalId = @externalId;";
 
-        public static string AddMeal =>
+        public const string Add =
             @"INSERT INTO Meal
                 ([externalId], [name], [Category], [Area], [instructions], [image])
               VALUES

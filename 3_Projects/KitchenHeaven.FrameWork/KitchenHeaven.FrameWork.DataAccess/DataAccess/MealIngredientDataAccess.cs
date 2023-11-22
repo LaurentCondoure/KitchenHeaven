@@ -1,23 +1,32 @@
-﻿using KitchenHeaven.FrameWork.DataAccess.Interfaces;
+﻿using Dapper;
+
+using KitchenHeaven.FrameWork.DataAccess.Interfaces;
+using KitchenHeaven.FrameWork.DataAccess.Queries;
 using KitchenHeaven.FrameWork.Entities;
-using System.Data;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
     public class MealIngredientDataAccess : IMealIngredientDataAccess
     {
         #region private properties
-        private IDbConnection _dbConnection;
+        private IDbContext _dbContext;
         #endregion
 
-        public void SetDbContext(IDbConnection dbConnection)
-        {
-            _dbConnection = dbConnection;
+        public MealIngredientDataAccess(IDbContext dbContext)
+        { 
+            _dbContext = dbContext;
         }
 
         public int Add(MealIngredient entity)
         {
-            throw new System.NotImplementedException();
+            return _dbContext.DbConnection.ExecuteScalar<int>(MealIngredientQueries.Add
+                                                              , new
+                                                              {
+                                                                  meal = entity.MealId,
+                                                                  ingredientId = entity.IngredientId,
+                                                                  measure = entity.Measure
+                                                              }
+                                                              , _dbContext.DbTransaction);
         }
 
         public MealIngredient GetByExternalId(string Id)

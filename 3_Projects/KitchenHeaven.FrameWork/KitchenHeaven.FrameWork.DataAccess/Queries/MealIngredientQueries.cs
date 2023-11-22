@@ -6,7 +6,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 {
     public static class MealIngredientQueries
     {
-        public static string Add =>
+        public const string Add =
             @"
                 INSERT INTO MealIngredients
                     ([mealId], [ingredientId], [measure])

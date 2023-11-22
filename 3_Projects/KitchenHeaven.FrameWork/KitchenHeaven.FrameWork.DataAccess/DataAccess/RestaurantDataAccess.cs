@@ -8,6 +8,12 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
     public class RestaurantDataAccess : IRestaurantDataAccess
     {
+        private IDbContext _dbContext;
+
+        public RestaurantDataAccess(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public int Add(Restaurant entity)
         {
             throw new NotImplementedException();

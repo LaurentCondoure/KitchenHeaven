@@ -2,7 +2,7 @@
 
 namespace KitchenHeaven.FrameWork.DataAccess.Interfaces
 {
-    public interface IIngredientDataAccess : IBaseDataAccess<Meal>
+    public interface IIngredientDataAccess : IBaseDataAccess<Ingredient>
     {
     }
 }

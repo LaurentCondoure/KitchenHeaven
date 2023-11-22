@@ -1,22 +1,23 @@
 ﻿
 using KitchenHeaven.FrameWork.DataAccess.Interfaces;
 using KitchenHeaven.FrameWork.Entities;
+using System.Collections.Generic;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
     public class MealIngredientAPIAccess : IMealAPIAccess
     {
-        public int Add(Meal entity)
+        public MealFilterValue GetFilters()
         {
             throw new System.NotImplementedException();
         }
 
-        public Meal GetByExternalId(string Id)
+        public Meal GetMeal(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Meal GetById(int Id)
+        public ICollection<Meal> SearchMeals(MealFilterValue mealFilterValue)
         {
             throw new System.NotImplementedException();
         }

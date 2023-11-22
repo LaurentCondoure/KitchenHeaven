@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using KitchenHeaven.FrameWork.DataAccess.Interfaces;
 using KitchenHeaven.FrameWork.Entities;
 
@@ -8,17 +8,17 @@ namespace KitchenHeaven.FrameWork.DataAccess
     public class MealAPIAcess : IMealAPIAccess
     {
 
-        public int Add(Meal entity)
+        public MealFilterValue GetFilters()
         {
             throw new NotImplementedException();
         }
 
-        public Meal GetByExternalId(string Id)
+        public Meal GetMeal(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Meal GetById(int Id)
+        public ICollection<Meal> SearchMeals(MealFilterValue mealFilterValue)
         {
             throw new NotImplementedException();
         }

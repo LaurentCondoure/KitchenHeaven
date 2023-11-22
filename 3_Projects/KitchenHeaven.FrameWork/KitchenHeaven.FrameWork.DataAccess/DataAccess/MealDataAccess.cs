@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Data;
-
+using Dapper;
 using KitchenHeaven.FrameWork.DataAccess.Interfaces;
+using KitchenHeaven.FrameWork.DataAccess.Queries;
 using KitchenHeaven.FrameWork.Entities;
 
 
@@ -9,16 +10,26 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
     public class MealDataAccess : IMealDataAccess
     {
-        private readonly IDbConnection _dbConnection;
+        private readonly IDbContext _dbContext;
 
-        public MealDataAccess(IDbConnection dbConnection)
+        public MealDataAccess(IDbContext dbContext)
         {
-            _dbConnection = dbConnection;
+            _dbContext = dbContext;
         }
 
         public int Add(Meal entity)
         {
-            throw new NotImplementedException();
+            return _dbContext.DbConnection.ExecuteScalar<int>(MealQueries.Add
+                                                              , new
+                                                                  {
+                                                                      name = entity.Name,
+                                                                      externalId = entity.ExternalId,
+                                                                      area = entity.Area,
+                                                                      cateagory = entity.Category,
+                                                                      image = entity.Image,
+                                                                      instructions = entity.Instructions
+                                                                  }
+                                                              , _dbContext.DbTransaction);
         }
 
         public Meal GetByExternalId(string Id)

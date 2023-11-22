@@ -6,7 +6,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 {
     public class IngredientQueries
     {
-        public static string GetById =>
+        public const string GetById = 
             @"SELECT
                 *
               FROM
@@ -15,7 +15,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
                 id = @id;           
             ";
 
-        public static string GetByIds =>
+        public const string GetByIds =
             @"SELECT
                 *
               FROM
@@ -24,11 +24,13 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
                 id in (@ids);           
             ";
 
-        public static string Add => 
+        public const string Add =
             @"INSERT INTO Ingredient
                 ([ExternalId], [Name], [Description])
               VALUES
                 (@externalId, @name, @description);
+              select 
+                last_insert_rowid();
             ";
     }
 }

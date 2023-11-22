@@ -11,13 +11,6 @@ namespace KitchenHeaven.FrameWork.DataAccess.Ninject
     {
         public override void Load()
         {
-            #region DataAccess Binding
-            Kernel.Bind<IIngredientDataAccess>().To<IngredientDataAccess>();
-            Kernel.Bind<IMealDataAccess>().To<MealDataAccess>();
-            Kernel.Bind<IRestaurantDataAccess>().To<RestaurantDataAccess>();
-            Kernel.Bind<IMealIngredientDataAccess>().To<MealIngredientDataAccess>();
-            Kernel.Bind<IRestaurantDataAccess>().To<RestaurantDataAccess>();
-            #endregion
 
             Kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
 

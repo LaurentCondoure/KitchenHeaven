@@ -3,6 +3,7 @@ using System;
 using System.Data;
 
 using KitchenHeaven.FrameWork.DataAccess.Interfaces;
+using KitchenHeaven.FrameWork.DataAccess.DataAccess;
 
 namespace KitchenHeaven.FrameWork.DataAccess.UOW
 {
@@ -11,50 +12,86 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
         #region private properties
         private IDbConnection _connection;
         private IDbTransaction _transaction;
-        private bool _disposed;
 
-        private readonly IIngredientDataAccess _ingredientDataAccess;
-        private readonly IMealDataAccess _mealDataAccess;
-        private readonly IMealIngredientDataAccess _mealIngredientDataAccess;
-        private readonly IMenuDataAccess _menuDataAccess;
-        private readonly IRestaurantDataAccess _restaurantDataAccess;
+        private readonly IDbContext _dbContext;
+
+        private bool _disposed = false;
+
+        private IIngredientDataAccess _ingredientDataAccess;
+        private IMealDataAccess _mealDataAccess;
+        private IMealIngredientDataAccess _mealIngredientDataAccess;
+        private IMenuDataAccess _menuDataAccess;
+        private IRestaurantDataAccess _restaurantDataAccess;
         #endregion
 
-        public UnitOfWork(IIngredientDataAccess ingredientDataAccess
-                            , IMealDataAccess mealDataAccess
-                            , IMealIngredientDataAccess mealIngredientDataAccess
-                            , IMenuDataAccess menuDataAccess
-                            , IRestaurantDataAccess restaurantDataAccess)
+        public UnitOfWork(string connectionString, bool useTransaction)
         {
-            _ingredientDataAccess = ingredientDataAccess;
-            _mealDataAccess = mealDataAccess;
-            _mealIngredientDataAccess = mealIngredientDataAccess;
-            _menuDataAccess = menuDataAccess;
-            _restaurantDataAccess = restaurantDataAccess;
-        }
-
-        #region IUnitOfWork interface
-        public IIngredientDataAccess IngredientDataAccess { get; }
-
-        public IMealDataAccess MealDataAccess { get; }
-
-        public IMealIngredientDataAccess MealIngredientDataAccess { get; }
-
-        public IMenuDataAccess MenuDataAccess { get; }
-
-        public IRestaurantDataAccess RestaurantDataAccess { get; }
-
-        
-
-        public void Begin(string connectionString, bool useTransaction)
-        {
-            if(string.IsNullOrWhiteSpace(connectionString))
+            if (string.IsNullOrWhiteSpace(connectionString))
                 throw new ArgumentNullException("connectionString cannot be null");
             _connection = new SqliteConnection(connectionString);
             _connection.Open();
             if (useTransaction)
                 _transaction = _connection.BeginTransaction();
+
+            _dbContext = new DbContext(_connection, _transaction);
         }
+
+        #region IUnitOfWork interface
+        public IIngredientDataAccess IngredientDataAccess 
+        { 
+          get 
+              { return _ingredientDataAccess 
+                          ?? (_ingredientDataAccess 
+                                  = new IngredientDataAccess(_dbContext)); 
+              } 
+        }
+
+        public IMealDataAccess MealDataAccess
+        {
+            get
+            {
+                return _mealDataAccess
+                          ?? (_mealDataAccess
+                                  = new MealDataAccess(_dbContext));
+            }
+        }
+
+        public IMealIngredientDataAccess MealIngredientDataAccess
+        {
+            get
+            {
+                return _mealIngredientDataAccess
+                          ?? (_mealIngredientDataAccess
+                                  = new MealIngredientDataAccess(_dbContext));
+            }
+        }
+
+        public IMenuDataAccess MenuDataAccess
+        {
+            get
+            {
+                return _menuDataAccess
+                          ?? (_menuDataAccess
+                                  = new MenuDataAccess(_dbContext));
+            }
+        }
+
+        public IRestaurantDataAccess RestaurantDataAccess
+        {
+            get
+            {
+                return _restaurantDataAccess
+                          ?? (_restaurantDataAccess
+                                  = new RestaurantDataAccess(_dbContext));
+            }
+        }
+
+        //If connection is created in constrctor and transaction in Begin method,
+        //there is a way to insert multiple table withourt expected result in use
+        //public void Begin(bool useTransaction)
+        //{
+
+        //}
 
         public void Commit()
         {
@@ -64,20 +101,14 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
             }
             catch
             {
-                Finalize();
+                _transaction?.Rollback();
+                throw;
             }
         }
 
         public void Rollback()
         {
-            try
-            {
-                _transaction?.Rollback();
-            }
-            catch
-            {
-                Finalize();
-            }
+            _transaction?.Rollback();
         }
 
         #endregion
@@ -114,11 +145,24 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
             }
         }
 
-        private void Finalize()
+        private void FinalizeDataAccess()
         {
+            _ingredientDataAccess = null;
+            _mealDataAccess = null;
+            _menuDataAccess = null;
+            _restaurantDataAccess = null;
+            _mealIngredientDataAccess = null;
+        }
+
+        ~UnitOfWork()
+        {
+            FinalizeDataAccess();
+
+
             _transaction?.Dispose();
             _transaction = null;
-            _connection?.Close();
+            if (_connection?.State != ConnectionState.Closed)
+                _connection?.Close();
             _connection?.Dispose();
             _connection = null;
         }

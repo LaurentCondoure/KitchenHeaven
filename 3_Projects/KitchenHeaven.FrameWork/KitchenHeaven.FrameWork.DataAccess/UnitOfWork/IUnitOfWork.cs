@@ -12,8 +12,6 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
         IMealIngredientDataAccess MealIngredientDataAccess { get; }
         IMenuDataAccess MenuDataAccess { get; }
         IRestaurantDataAccess RestaurantDataAccess { get; }
-
-        void Begin(string connectionString, bool useTransaction);
         void Commit();
         void Rollback();
 

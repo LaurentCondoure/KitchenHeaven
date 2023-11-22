@@ -1,24 +1,27 @@
 ﻿using KitchenHeaven.FrameWork.DataAccess.Interfaces;
+using System;
 using System.Data;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
-    internal class DbContext : IDbContext
+    public class DbContext : IDbContext
     {
         #region private properties
-        private IDbConnection _dbConnection;
+        private readonly IDbConnection _dbConnection;
 
-        private IDbTransaction _dbTransaction;
+        private readonly IDbTransaction _dbTransaction;
         #endregion
 
-        public IDbConnection DbConnection => throw new System.NotImplementedException();
+        public IDbConnection DbConnection { get{ return _dbConnection; } }
 
-        public IDbTransaction DbTransaction => throw new System.NotImplementedException();
+        public IDbTransaction DbTransaction { get { return _dbTransaction; } }
 
         public DbContext(IDbConnection dbConnection, IDbTransaction dbTransaction)
         { 
             _dbConnection = dbConnection;
             _dbTransaction = dbTransaction;
         }
+
+
     }
 }
