@@ -26,7 +26,6 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
 
 
         #region IUnitOfWork interface
-
         public void Begin(string connectionString, bool useTransaction)
         {
             if (string.IsNullOrWhiteSpace(connectionString))

@@ -1,10 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace KitchenHeaven.FrameWork.Service.Interface
+using KitchenHeaven.FrameWork.DataObject.Entities;
+using KitchenHeaven.FrameWork.DataObject.Enums;
+
+
+namespace KitchenHeaven.FrameWork.Service.Interfaces
 {
     public interface IMealService
     {
+        IEnumerable<MealFilterValue> GetFilters(FilterType filterType);
+
+        Meal ConsultMeal(string externalId, int restaurantId);
+
+        IEnumerable<Meal> Search(MealFilterValue filterValue);
+
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using KitchenHeaven.FrameWork.DataAccess.UOW;
 using KitchenHeaven.FrameWork.DataObject.Entities;
-using KitchenHeaven.FrameWork.Service.Interface;
+using KitchenHeaven.FrameWork.Service.Interfaces;
 using System.Collections.Generic;
 
 namespace KitchenHeaven.FrameWork.Service.Services
@@ -12,6 +12,7 @@ namespace KitchenHeaven.FrameWork.Service.Services
         private readonly IMenuService _menuService;
 
         private readonly string connectionString;
+
 
         public RestaurantService(IUnitOfWork unitOfWork, IMenuService menuService)
         {

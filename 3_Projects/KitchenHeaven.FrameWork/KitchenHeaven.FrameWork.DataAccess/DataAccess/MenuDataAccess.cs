@@ -1,9 +1,13 @@
-﻿using Dapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+
+using Dapper;
 
 using KitchenHeaven.FrameWork.DataAccess.Interfaces;
 using KitchenHeaven.FrameWork.DataAccess.Queries;
 using KitchenHeaven.FrameWork.DataObject.Entities;
-using System.Collections.Generic;
+
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
@@ -18,14 +22,24 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
             _dbContext = dbContext;
         }
 
+        public bool CheckDbContext()
+        {
+            if (_dbContext == null || (_dbContext.DbConnection == null || _dbContext.DbConnection.State != ConnectionState.Open))
+                return false;
+            else
+                return true;
+        }
+
         #region CREATE
         public int Add(Menu entity)
         {
+            if (!CheckDbContext())
+                throw new Exception("Database connection is not initialized");
             return _dbContext.DbConnection.ExecuteScalar<int>(MenuQueries.Add
                                                               , new
                                                                   {
                                                                       meal = entity.MealId,
-                                                                      restaurantId = entity.ResturantId
+                                                                      restaurantId = entity.RestaurantId
                                                                   }
                                                               , _dbContext.DbTransaction);
         }
@@ -34,6 +48,8 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         #region READ
         public int CheckMealInMenu(string mealExternalId)
         {
+            if (!CheckDbContext())
+                throw new Exception("Database connection is not initialized");
             return _dbContext.DbConnection.ExecuteScalar<int>(MenuQueries.GetMealByExternalId
                                                                 , new { externalId = mealExternalId }
                                                                 , _dbContext.DbTransaction);

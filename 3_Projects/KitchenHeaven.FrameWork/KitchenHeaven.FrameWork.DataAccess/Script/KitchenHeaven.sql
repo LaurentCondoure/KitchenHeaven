@@ -35,7 +35,7 @@ Restaurant (
 	addressComplement varchar(76),
 	cityCode varchar(10),
 	cityName varchar(50),
-	Manager varchar(10)
+	manager varchar(10)
 );
 
 CREATE TABLE IF NOT EXISTS

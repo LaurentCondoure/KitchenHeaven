@@ -6,10 +6,10 @@ namespace KitchenHeaven.FrameWork.DataAccess.Interfaces
 {
     public interface IMealAPIAccess
     {
-        MealFilterValue GetFilters();
+        IEnumerable<MealFilterValue> GetFilters();
 
-        ICollection<Meal> SearchMeals(MealFilterValue mealFilterValue);
+        IEnumerable<Meal> SearchMeals(MealFilterValue mealFilterValue);
 
-        Meal GetMeal(int id);
+        Meal GetMeal(string id);
     }
 }

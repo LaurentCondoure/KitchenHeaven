@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KitchenHeaven.FrameWork.Service.Interface
+namespace KitchenHeaven.FrameWork.Service.Interfaces
 {
     public interface IRestaurantService
     {

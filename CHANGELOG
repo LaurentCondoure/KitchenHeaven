@@ -11,6 +11,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.2]
 ### Added
 - KitchenHeaven.FrameWork.Service
+	_ DependencyInjection declaration
+
+### Modified
+- KitchenHeaven.FrameWork.Service
+	_ MenuService Implementation
+	_ RestaurantService Implementation
+	_ MealService Implementation
+- KitchenHeaven.FrameWork.DataAccess
+	_ Check DbContext before querie /!\ alert on transaction
+
+## [1.2.2]
+### Added
+- KitchenHeaven.FrameWork.Service
 	_ MenuService Implementation
 	_ RestaurantService Implementation
 

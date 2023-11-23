@@ -31,7 +31,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         public int Add(Meal entity)
         {
             if (!CheckDbContext())
-                throw new Exception("Database connection is not initialized");)
+                throw new Exception("Database connection is not initialized");
             return _dbContext.DbConnection.ExecuteScalar<int>(MealQueries.Add
                                                               , new
                                                                   {

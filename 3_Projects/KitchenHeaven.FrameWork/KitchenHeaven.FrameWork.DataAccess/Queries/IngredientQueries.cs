@@ -26,7 +26,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 
         public const string Add =
             @"INSERT INTO Ingredient
-                ([ExternalId], [Name], [Description])
+                ([externalId], [name], [description])
               VALUES
                 (@externalId, @name, @description);
               select 
@@ -35,7 +35,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 
         public const string GetByMealId =
             @"SELECT
-                ingredient.Name,ingredient.description, mealIngredient.measure
+                ingredient.id, ingredient.name,ingredient.description, mealIngredient.measure
               FROM
                 Ingredient ingredient
               INNER JOIN

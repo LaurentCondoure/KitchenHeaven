@@ -8,7 +8,7 @@ using KitchenHeaven.FrameWork.DataObject.Enums;
 
 namespace KitchenHeaven.FrameWork.DataAccess.Factories
 {
-    public class APIAccessFactory : IAPIAcessFactory
+    public class APIAccessFactory : IAPIAccessFactory
     {
         private IOptionsSnapshot<APIConfiguration> _options;
         public APIAccessFactory(IOptionsSnapshot<APIConfiguration> options)
@@ -23,7 +23,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Factories
             {
                 case FilterType.Area:
                     return new MealAreaAPIAccess(_options);
-                case FilterType.Name:
+                case FilterType.Meal:
                     return new MealAPIAcess(_options);
                 case FilterType.Ingredient:
                     return new MealIngredientAPIAccess(_options);

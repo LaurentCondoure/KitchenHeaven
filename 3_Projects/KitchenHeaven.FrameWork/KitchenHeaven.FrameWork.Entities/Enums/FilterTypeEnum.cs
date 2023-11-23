@@ -7,7 +7,7 @@ namespace KitchenHeaven.FrameWork.DataObject.Enums
     [Flags]
     public enum FilterType
     {
-        Name = 1,
+        Meal = 1,
         Area = 2,
         Category = 4,
         Ingredient = 8

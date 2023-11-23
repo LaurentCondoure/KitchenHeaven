@@ -31,7 +31,9 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
                 OR
                     @cityCode is null OR (@cityCode is not null AND (cityCode like @cityCode))
                 OR
-                    @cityName is null OR (@cityName is not null AND (cityNam like @cityName))
+                    @cityName is null OR (@cityName is not null AND (cityName like @cityName))
+                OR
+                    @manager is null OR (@manager is not null AND manager = @manager)
 
             ";
 

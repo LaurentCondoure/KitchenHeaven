@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 
 using Dapper;
 
@@ -9,6 +11,7 @@ using KitchenHeaven.FrameWork.DataObject.Entities;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
+    //public class MealIngredientDataAccess : BaseDataAccess, IMealIngredientDataAccess
     public class MealIngredientDataAccess : IMealIngredientDataAccess
     {
         #region private properties
@@ -16,12 +19,22 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         #endregion
 
         public MealIngredientDataAccess(IDbContext dbContext)
-        { 
+        {
             _dbContext = dbContext;
+        }
+
+        public bool CheckDbContext()
+        {
+            if (_dbContext == null || (_dbContext.DbConnection == null || _dbContext.DbConnection.State != ConnectionState.Open))
+                return false;
+            else
+                return true;
         }
 
         public int Add(MealIngredient entity)
         {
+            if(!CheckDbContext())
+                throw new Exception("Database connection is not initialized");
             return _dbContext.DbConnection.ExecuteScalar<int>(MealIngredientQueries.Add
                                                               , new
                                                               {

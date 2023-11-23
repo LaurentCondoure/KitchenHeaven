@@ -3,17 +3,19 @@
 using KitchenHeaven.FrameWork.DataObject.Entities;
 
 
-namespace KitchenHeaven.FrameWork.Service.Interface
+namespace KitchenHeaven.FrameWork.Service.Interfaces
 {
     public interface IMenuService
     {
-        int AddMeal(int restaurantId, string externalId);
+        bool AddMeal(int restaurantId, string externalId);
 
-        int AddMeal(Restaurant restaurant);
+        IEnumerable<Meal> AddMeal(int restaurantId, List<string> externalId, out Dictionary<string, string> results);
+
+        IEnumerable<Meal> AddMeal(Restaurant restaurant);
 
         bool CheckMeal(string externalId);
 
-        IEnumerable<Meal> GetMenu(int restaurantID);
+        IEnumerable<Meal> GetMenu(int restaurantId);
 
 
     }

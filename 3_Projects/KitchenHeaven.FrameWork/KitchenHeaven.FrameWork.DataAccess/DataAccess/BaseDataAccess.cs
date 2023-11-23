@@ -4,7 +4,10 @@ using System.Text;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
-    internal class BaseDataAccess
+    public class BaseDataAccess
     {
+        //public bool CheckDbCOntext()
+        //{ 
+        //}
     }
 }

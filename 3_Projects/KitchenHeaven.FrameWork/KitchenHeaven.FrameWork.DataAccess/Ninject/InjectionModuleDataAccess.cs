@@ -12,7 +12,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Ninject
 
             Kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
 
-            Kernel.Bind<IAPIAcessFactory>().To<APIAccessFactory>();
+            Kernel.Bind<IAPIAccessFactory>().To<APIAccessFactory>();
 
 
         }

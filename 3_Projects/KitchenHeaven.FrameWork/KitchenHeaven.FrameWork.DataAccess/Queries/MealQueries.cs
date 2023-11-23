@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace KitchenHeaven.FrameWork.DataAccess.Queries
 {
     public static class MealQueries
@@ -44,7 +41,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 
         public const string GetByRestaurantId =
             @"SELECT
-                meal.[name], meal.[Category], meal.[Area], meal.[image]
+                meal.id, meal.externalId, meal.[name], meal.[Category], meal.[Area], meal.[image]
               FROM
                 Meal meal
               INNER JOIN Menu menu

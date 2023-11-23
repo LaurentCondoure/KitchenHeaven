@@ -18,17 +18,17 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         }
 
 
-        public MealFilterValue GetFilters()
+        public IEnumerable<MealFilterValue> GetFilters()
         {
             throw new NotImplementedException();
         }
 
-        public Meal GetMeal(int id)
+        public Meal GetMeal(string id)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Meal> SearchMeals(MealFilterValue mealFilterValue)
+        public IEnumerable<Meal> SearchMeals(MealFilterValue mealFilterValue)
         {
             throw new NotImplementedException();
         }
