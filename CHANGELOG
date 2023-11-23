@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
+## [1.2.2]
+### Added
+- KitchenHeaven.FrameWork.Service
+	_ MenuService Implementation
+	_ RestaurantService Implementation
+
+### Modified
+- KitchenHeaven.FrameWork.DataAccess 
+	_ DataAccess : Secure dbContext on query
+	_ UnitOfWork : add BeginTransaction to facilitate dependency injection
+- KitchenHeaven.FrameWork.Entities rename KitchenHeaven.FrameWork.DataObject
+
 ## [1.2.1]
 ### Modified
 - KitchenHeaven.FrameWork.DataAccess 

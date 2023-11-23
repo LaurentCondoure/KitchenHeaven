@@ -1,9 +1,9 @@
-﻿using KitchenHeaven.FrameWork.Entities.Enums;
+﻿using KitchenHeaven.FrameWork.DataObject.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KitchenHeaven.FrameWork.Entities
+namespace KitchenHeaven.FrameWork.DataObject.Entities
 {
     public class MealFilterValue
     {

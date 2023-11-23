@@ -1,5 +1,4 @@
-﻿using KitchenHeaven.FrameWork.DataAccess.Interfaces;
-using KitchenHeaven.FrameWork.Entities;
+﻿using KitchenHeaven.FrameWork.DataObject.Entities;
 
 namespace KitchenHeaven.FrameWork.DataAccess.Interfaces
 {

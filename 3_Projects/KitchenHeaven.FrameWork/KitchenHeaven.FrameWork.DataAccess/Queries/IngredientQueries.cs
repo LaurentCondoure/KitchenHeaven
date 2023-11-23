@@ -6,7 +6,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 {
     public class IngredientQueries
     {
-        public const string GetById = 
+        public const string GetById =
             @"SELECT
                 *
               FROM
@@ -32,5 +32,17 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
               select 
                 last_insert_rowid();
             ";
+
+        public const string GetByMealId =
+            @"SELECT
+                ingredient.Name,ingredient.description, mealIngredient.measure
+              FROM
+                Ingredient ingredient
+              INNER JOIN
+                MealIngredient mealIngredient on ingredient.id = mealIngredient.Id
+              WHERE
+                mealIngredient.mealId = @mealId;
+            ";
+            
     }
 }

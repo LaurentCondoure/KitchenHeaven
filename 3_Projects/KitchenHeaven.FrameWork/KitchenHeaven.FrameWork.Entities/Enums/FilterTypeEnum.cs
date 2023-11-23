@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KitchenHeaven.FrameWork.Entities.Enums
+namespace KitchenHeaven.FrameWork.DataObject.Enums
 {
     [Flags]
     public enum FilterType

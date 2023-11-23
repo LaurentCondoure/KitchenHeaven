@@ -6,7 +6,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 {
     public static class RestaurantQueries
     {
-        public static string GetById =>
+        public const string GetById =
             @"SELECT
                 *
               FROM
@@ -14,29 +14,38 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
               WHERE
                 Id = @id";
 
-        public static string SearchRestaurant =>
+        public const string Search =
             @"
                 SELECT
                     *
                 FROM
                     Restaurant
                 WHERE
-                    @name is null OR (@name is not null and name like @name)
+                    @name is null OR (@name is not null AND name like @name)
                 OR
-                    @businessIdentifier is null OR (@businessIdentifier is not null and businessIdentifier like @businessidentifier )
+                    @businessIdentifier is null OR (@businessIdentifier is not null AND businessIdentifier like @businessidentifier )
                 OR
-                    @Adress is null OR (@adress is not null and (adress like @adress  OR  adressComplement like @adress))
+                    @address is null OR (@address is not null AND (Address like @address))
                 OR
-                    @city is null OR (@city is not null and (cityCode like @cityCode  OR  cityName like @cityName))
+                    @addressComplement is null OR (@addressComplement is not null AND (AddressComplement like @addressComplement))
+                OR
+                    @cityCode is null OR (@cityCode is not null AND (cityCode like @cityCode))
+                OR
+                    @cityName is null OR (@cityName is not null AND (cityNam like @cityName))
 
             ";
 
-        public static string Add =>
+        public const string Add =
             @"INSERT INTO Restaurant
-                ([name], [businessIdentifier], [adress], [adressComplement], [cityCode], [cityName], [manager])
+                ([name], [businessIdentifier], [Address], [AddressComplement], [cityCode], [cityName], [manager])
               Values
-                (@name, @businessIdentifier, @adress, @adressComplement, @cityCode, @cityName, @manager);
+                (@name, @businessIdentifier, @address, addressComplement, @cityCode, @cityName, @manager);
             ";
 
+        public const string GetAll = 
+            @"SELECT
+                *
+              FROM
+                Restaurant";
     }
 }

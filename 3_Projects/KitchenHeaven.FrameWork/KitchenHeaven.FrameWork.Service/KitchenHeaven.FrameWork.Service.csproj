@@ -7,11 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KitchenHeaven.FrameWork.DataAccess\KitchenHeaven.FrameWork.DataAccess.csproj" />
-    <ProjectReference Include="..\KitchenHeaven.FrameWork.Entities\KitchenHeaven.FrameWork.Entities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\KitchenHeaven.FrameWork.Entities\KitchenHeaven.FrameWork.DataObject.csproj" />
   </ItemGroup>
 
 </Project>

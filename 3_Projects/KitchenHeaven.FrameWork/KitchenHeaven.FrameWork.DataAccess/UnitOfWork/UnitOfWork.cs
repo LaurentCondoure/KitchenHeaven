@@ -13,7 +13,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
         private IDbConnection _connection;
         private IDbTransaction _transaction;
 
-        private readonly IDbContext _dbContext;
+        private IDbContext _dbContext;
 
         private bool _disposed = false;
 
@@ -24,10 +24,15 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
         private IRestaurantDataAccess _restaurantDataAccess;
         #endregion
 
-        public UnitOfWork(string connectionString, bool useTransaction)
+
+        #region IUnitOfWork interface
+
+        public void Begin(string connectionString, bool useTransaction)
         {
             if (string.IsNullOrWhiteSpace(connectionString))
                 throw new ArgumentNullException("connectionString cannot be null");
+            if (_connection != null)
+                throw new ArgumentNullException("connection alreadyOpen to the database");
             _connection = new SqliteConnection(connectionString);
             _connection.Open();
             if (useTransaction)
@@ -36,72 +41,17 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
             _dbContext = new DbContext(_connection, _transaction);
         }
 
-        #region IUnitOfWork interface
-        public IIngredientDataAccess IngredientDataAccess 
-        { 
-          get 
-              { return _ingredientDataAccess 
-                          ?? (_ingredientDataAccess 
-                                  = new IngredientDataAccess(_dbContext)); 
-              } 
-        }
-
-        public IMealDataAccess MealDataAccess
-        {
-            get
-            {
-                return _mealDataAccess
-                          ?? (_mealDataAccess
-                                  = new MealDataAccess(_dbContext));
-            }
-        }
-
-        public IMealIngredientDataAccess MealIngredientDataAccess
-        {
-            get
-            {
-                return _mealIngredientDataAccess
-                          ?? (_mealIngredientDataAccess
-                                  = new MealIngredientDataAccess(_dbContext));
-            }
-        }
-
-        public IMenuDataAccess MenuDataAccess
-        {
-            get
-            {
-                return _menuDataAccess
-                          ?? (_menuDataAccess
-                                  = new MenuDataAccess(_dbContext));
-            }
-        }
-
-        public IRestaurantDataAccess RestaurantDataAccess
-        {
-            get
-            {
-                return _restaurantDataAccess
-                          ?? (_restaurantDataAccess
-                                  = new RestaurantDataAccess(_dbContext));
-            }
-        }
-
-        //If connection is created in constrctor and transaction in Begin method,
-        //there is a way to insert multiple table withourt expected result in use
-        //public void Begin(bool useTransaction)
-        //{
-
-        //}
-
         public void Commit()
         {
             try
             {
                 _transaction?.Commit();
+                FinalizeConnection();
             }
             catch
             {
                 _transaction?.Rollback();
+                FinalizeConnection();
                 throw;
             }
         }
@@ -109,6 +59,42 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
         public void Rollback()
         {
             _transaction?.Rollback();
+            FinalizeConnection();
+        }
+
+        public IIngredientDataAccess GetIngredientDataAccess()
+        {
+            if (_dbContext == null || _dbContext.DbConnection == null)
+                throw new Exception("DataBaseContext must be initialize by Begin method");
+            return new IngredientDataAccess(_dbContext);
+        }
+
+        public IMealDataAccess GetMealDataAccess()
+        {
+            if (_dbContext == null || _dbContext.DbConnection == null)
+                throw new Exception("DataBaseContext must be initialize by Begin method");
+            return new MealDataAccess(_dbContext);
+        }
+
+        public IMealIngredientDataAccess GetMealIngredientDataAccess()
+        {
+            if (_dbContext == null || _dbContext.DbConnection == null)
+                throw new Exception("DataBaseContext must be initialize by Begin method");
+            return new MealIngredientDataAccess(_dbContext);
+        }
+
+        public IMenuDataAccess GetMenuDataAccess()
+        {
+            if (_dbContext == null || _dbContext.DbConnection == null)
+                throw new Exception("DataBaseContext must be initialize by Begin method");
+            return new MenuDataAccess(_dbContext);
+        }
+
+        public IRestaurantDataAccess GetRestaurantDataAccess()
+        {
+            if (_dbContext == null || _dbContext.DbConnection == null)
+                throw new Exception("DataBaseContext must be initialize by Begin method");
+            return new RestaurantDataAccess(_dbContext);
         }
 
         #endregion
@@ -128,18 +114,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
             {
                 if (disposing)
                 {
-                    if (_transaction != null)
-                    {
-                        _transaction?.Dispose();
-                        _transaction = null;
-                    }
-                    if (_connection != null)
-                    {
-                        if(_connection.State != ConnectionState.Closed)
-                            _connection?.Close();
-                        _connection?.Dispose();
-                        _connection = null;
-                    }
+                    FinalizeConnection();
                 }
                 _disposed = true;
             }
@@ -154,10 +129,8 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
             _mealIngredientDataAccess = null;
         }
 
-        ~UnitOfWork()
+        private void FinalizeConnection()
         {
-            FinalizeDataAccess();
-
 
             _transaction?.Dispose();
             _transaction = null;
@@ -165,6 +138,25 @@ namespace KitchenHeaven.FrameWork.DataAccess.UOW
                 _connection?.Close();
             _connection?.Dispose();
             _connection = null;
+            FinalizeDataAccess();
+        }
+
+        private void FinalizeTransaction()
+        {
+        }
+
+        ~UnitOfWork()
+        {
+            if (_connection != null && _connection.State == ConnectionState.Open)
+            {
+                if (_transaction != null)
+                {
+                    _transaction.Rollback();
+                }
+            }
+
+            FinalizeConnection();
+            FinalizeDataAccess();
         }
         #endregion
 

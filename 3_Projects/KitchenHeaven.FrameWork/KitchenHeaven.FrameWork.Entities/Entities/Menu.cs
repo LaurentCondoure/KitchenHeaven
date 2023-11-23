@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KitchenHeaven.FrameWork.Entities
+﻿namespace KitchenHeaven.FrameWork.DataObject.Entities
 {
     public class Menu
     {

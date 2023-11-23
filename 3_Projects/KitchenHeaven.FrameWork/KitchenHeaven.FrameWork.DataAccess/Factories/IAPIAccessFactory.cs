@@ -1,5 +1,5 @@
 ﻿using KitchenHeaven.FrameWork.DataAccess.Interfaces;
-using KitchenHeaven.FrameWork.Entities.Enums;
+using KitchenHeaven.FrameWork.DataObject.Enums;
 
 namespace KitchenHeaven.FrameWork.DataAccess.Factories
 {

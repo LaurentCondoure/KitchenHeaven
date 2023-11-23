@@ -1,7 +1,9 @@
 ﻿using Dapper;
+
 using KitchenHeaven.FrameWork.DataAccess.Interfaces;
 using KitchenHeaven.FrameWork.DataAccess.Queries;
-using KitchenHeaven.FrameWork.Entities;
+using KitchenHeaven.FrameWork.DataObject.Entities;
+using System.Collections.Generic;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
@@ -16,6 +18,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
             _dbContext = dbContext;
         }
 
+        #region CREATE
         public int Add(Menu entity)
         {
             return _dbContext.DbConnection.ExecuteScalar<int>(MenuQueries.Add
@@ -25,6 +28,19 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
                                                                       restaurantId = entity.ResturantId
                                                                   }
                                                               , _dbContext.DbTransaction);
+        }
+        #endregion
+
+        #region READ
+        public int CheckMealInMenu(string mealExternalId)
+        {
+            return _dbContext.DbConnection.ExecuteScalar<int>(MenuQueries.GetMealByExternalId
+                                                                , new { externalId = mealExternalId }
+                                                                , _dbContext.DbTransaction);
+        }
+        public IEnumerable<Menu> GetAll()
+        {
+            throw new System.NotImplementedException();
         }
 
         public Menu GetByExternalId(string Id)
@@ -36,5 +52,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         {
             throw new System.NotImplementedException();
         }
+        #endregion
+
     }
 }

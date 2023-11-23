@@ -1,8 +1,11 @@
-﻿using Dapper;
+﻿using System.Collections.Generic;
+
+using Dapper;
 
 using KitchenHeaven.FrameWork.DataAccess.Interfaces;
 using KitchenHeaven.FrameWork.DataAccess.Queries;
-using KitchenHeaven.FrameWork.Entities;
+using KitchenHeaven.FrameWork.DataObject.Entities;
+
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
@@ -27,6 +30,11 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
                                                                   measure = entity.Measure
                                                               }
                                                               , _dbContext.DbTransaction);
+        }
+
+        public IEnumerable<MealIngredient> GetAll()
+        {
+            throw new System.NotImplementedException();
         }
 
         public MealIngredient GetByExternalId(string Id)

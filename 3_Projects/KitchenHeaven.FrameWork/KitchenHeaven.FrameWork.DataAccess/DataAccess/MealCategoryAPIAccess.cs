@@ -1,12 +1,23 @@
-﻿using KitchenHeaven.FrameWork.DataAccess.Interfaces;
-using KitchenHeaven.FrameWork.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
+using Microsoft.Extensions.Options;
+
+using KitchenHeaven.FrameWork.DataAccess.Interfaces;
+using KitchenHeaven.FrameWork.DataObject.Entities;
+using KitchenHeaven.FrameWork.DataObject.Configuration;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
     public class MealCategoryAPIAccess : IMealAPIAccess
     {
+        private IOptionsSnapshot<APIConfiguration> _options;
+        public MealCategoryAPIAccess(IOptionsSnapshot<APIConfiguration> options)
+        {
+            _options = options;
+        }
+
+
         public MealFilterValue GetFilters()
         {
             throw new NotImplementedException();

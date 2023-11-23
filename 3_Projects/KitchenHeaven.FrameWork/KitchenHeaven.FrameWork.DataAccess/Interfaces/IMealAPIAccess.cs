@@ -1,5 +1,6 @@
-﻿using KitchenHeaven.FrameWork.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using KitchenHeaven.FrameWork.DataObject.Entities;
 
 namespace KitchenHeaven.FrameWork.DataAccess.Interfaces
 {

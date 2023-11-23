@@ -1,9 +1,7 @@
 ﻿using Ninject.Modules;
 
-using KitchenHeaven.FrameWork.DataAccess.DataAccess;
-using KitchenHeaven.FrameWork.DataAccess.Interfaces;
-using KitchenHeaven.FrameWork.DataAccess.UOW;
 using KitchenHeaven.FrameWork.DataAccess.Factories;
+using KitchenHeaven.FrameWork.DataAccess.UOW;
 
 namespace KitchenHeaven.FrameWork.DataAccess.Ninject
 {
