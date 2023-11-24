@@ -1,13 +1,15 @@
 ﻿namespace KitchenHeaven.FrameWork.DataObject.Configuration
 {
-    public class APIConfiguration
+    public class APIConfiguration : IAPIConfiguration
     {
-        public string APIUrl { get; set; }
-        public string APIKey { get; set; }
-        MealAreaAPIConfiguration MealAreaAPIConfiguration { get; } = new MealAreaAPIConfiguration();
-        MealCategoryAPIConfiguration MealCategoryAPIConfiguration { get; } = new MealCategoryAPIConfiguration();
-        MealIngredientAPIConfiguration MealIngredientAPIConfiguration { get; } = new MealIngredientAPIConfiguration();
-        MealNameAPIAccessConfiguration MealNameAPIConfiguration { get; } = new MealNameAPIAccessConfiguration();
+        public APIConfiguration()
+        { }
+
+        public GeneralAPIConfiguration  General { get; set; } 
+        public MealAreaAPIConfiguration MealArea { get; set; } 
+        public MealCategoryAPIConfiguration MealCategory { get; set; } 
+        public MealIngredientAPIConfiguration MealIngredient { get; set; } 
+        public MealAPIAccessConfiguration Meal { get; set; } 
 
     }
 }

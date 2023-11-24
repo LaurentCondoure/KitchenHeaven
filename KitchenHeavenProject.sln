@@ -31,6 +31,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitchenHeaven.FrameWork.Dat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KitchenHeaven.API", "KitchenHeaven.API", "{2EEC6270-6CD1-4889-B435-3BC2DF70305B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80DDAF13-FBBB-46DB-A330-30369F74158C}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenHeaven.API", "3_Projects\KitchenHeaven.API\KitchenHeaven.API.csproj", "{6A595998-090E-4287-B512-E7642F07C2F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +68,10 @@ Global
 		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A595998-090E-4287-B512-E7642F07C2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A595998-090E-4287-B512-E7642F07C2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A595998-090E-4287-B512-E7642F07C2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A595998-090E-4287-B512-E7642F07C2F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +89,7 @@ Global
 		{DEB2EC0D-6585-440A-B153-9D893082E8FD} = {EA9913F8-BAF5-4926-BBBB-582E09B7D9EC}
 		{4D7CC33C-5BD0-4B1A-BF89-78A951ED181E} = {DEB2EC0D-6585-440A-B153-9D893082E8FD}
 		{2EEC6270-6CD1-4889-B435-3BC2DF70305B} = {27020E55-3BB5-4052-8C8D-234C2F1D69AE}
+		{6A595998-090E-4287-B512-E7642F07C2F5} = {2EEC6270-6CD1-4889-B435-3BC2DF70305B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED2962A4-DC08-4CB0-987A-8644DB4A040C}

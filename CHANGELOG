@@ -8,10 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
+## [1.2.3]
+### Added
+- KitchenHeaven.FrameWork.API
+	_ Add Menu / Restaurant / Meal Controller
+- KitchenHeaven.FrameWork.DataAccess
+	_ Add unit Test for all API Access and Restaurant/Meal data access
+- KitchenHeaven.FrameWork.DataObject
+	_ JsonConverter 
+
 ## [1.2.2]
 ### Added
 - KitchenHeaven.FrameWork.Service
-	_ DependencyInjection declaration
+	_ Implement BusinessLogic AddRestaurant/AddMealToMenu/SearchMeal from 
 
 ### Modified
 - KitchenHeaven.FrameWork.Service

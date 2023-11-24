@@ -12,6 +12,8 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
                     ([mealId], [ingredientId], [measure])
                 VALUES
                     (@mealId, @ingredientId, @measure);
+                select 
+                    last_insert_rowid();
             ";
     }
 }

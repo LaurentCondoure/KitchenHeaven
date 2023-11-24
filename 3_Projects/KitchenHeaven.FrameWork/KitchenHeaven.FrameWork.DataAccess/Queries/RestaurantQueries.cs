@@ -22,17 +22,17 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
                     Restaurant
                 WHERE
                     @name is null OR (@name is not null AND name like @name)
-                OR
-                    @businessIdentifier is null OR (@businessIdentifier is not null AND businessIdentifier like @businessidentifier )
-                OR
+                AND
+                    @businessIdentifier is null OR (@businessIdentifier is not null AND businessIdentifier like @businessIdentifier )
+                AND
                     @address is null OR (@address is not null AND (Address like @address))
-                OR
+                AND
                     @addressComplement is null OR (@addressComplement is not null AND (AddressComplement like @addressComplement))
-                OR
+                AND
                     @cityCode is null OR (@cityCode is not null AND (cityCode like @cityCode))
-                OR
+                AND
                     @cityName is null OR (@cityName is not null AND (cityName like @cityName))
-                OR
+                AND
                     @manager is null OR (@manager is not null AND manager = @manager)
 
             ";
@@ -41,7 +41,9 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
             @"INSERT INTO Restaurant
                 ([name], [businessIdentifier], [Address], [AddressComplement], [cityCode], [cityName], [manager])
               Values
-                (@name, @businessIdentifier, @address, addressComplement, @cityCode, @cityName, @manager);
+                (@name, @businessIdentifier, @address, @addressComplement, @cityCode, @cityName, @manager);
+              select 
+                last_insert_rowid();
             ";
 
         public const string GetAll = 

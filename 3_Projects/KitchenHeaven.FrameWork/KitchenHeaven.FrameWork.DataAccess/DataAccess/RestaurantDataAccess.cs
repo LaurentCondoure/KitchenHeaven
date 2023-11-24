@@ -10,6 +10,9 @@ using KitchenHeaven.FrameWork.DataObject.Entities;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
+    /// <summary>
+    /// Classe instaciating methods to exchange data with DataBase focus on Restauarnt Entity
+    /// </summary>
     public class RestaurantDataAccess : IRestaurantDataAccess
     {
         private IDbContext _dbContext;
@@ -31,7 +34,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 
         public int Add(Restaurant entity)
         {
-            if(CheckDbContext())
+            if (!CheckDbContext())
                 throw new Exception("Database connection is not initialized");
             return _dbContext.DbConnection.ExecuteScalar<int>(RestaurantQueries.Add
                                                                 , new
@@ -39,7 +42,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
                                                                     name = entity.Name,
                                                                     businessIdentifier = entity.BusinessIdentifier,
                                                                     address = entity.Address,
-                                                                    addressComplement = entity.AddressCompelment,
+                                                                    addressComplement = entity.AddressComplement,
                                                                     cityCode = entity.CityCode,
                                                                     cityName = entity.CityName,
                                                                     manager = entity.Manager
@@ -47,23 +50,18 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
                                                                 , _dbContext.DbTransaction);
         }
 
-        public Restaurant GetByExternalId(string Id)
-        {
-            throw new NotImplementedException();
-        }
-
         public Restaurant GetById(int Id)
         {
-            if (CheckDbContext())
+            if (!CheckDbContext())
                 throw new Exception("Database connection is not initialized");
-            return _dbContext.DbConnection.ExecuteScalar<Restaurant>(RestaurantQueries.GetById
+            return _dbContext.DbConnection.QueryFirst<Restaurant>(RestaurantQueries.GetById
                                                                         , new { id = Id}
                                                                         , _dbContext.DbTransaction );
         }
 
         public IEnumerable<Restaurant> GetAll()
         {
-            if (CheckDbContext())
+            if (!CheckDbContext())
                 throw new Exception("Database connection is not initialized");
             return _dbContext.DbConnection.Query<Restaurant>(RestaurantQueries.GetAll
                                                             , transaction: _dbContext.DbTransaction);
@@ -71,7 +69,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 
         public IEnumerable<Restaurant> GetAllByCriteria(RestaurantSearchCriteria restaurantSearchCriteria)
         {
-            if (CheckDbContext())
+            if (!CheckDbContext())
                 throw new Exception("Database connection is not initialized");
             return _dbContext.DbConnection.Query<Restaurant>(RestaurantQueries.Search
                                                                 , new
@@ -80,10 +78,17 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
                                                                     businessIdentifier = string.Concat(restaurantSearchCriteria.Name, WildCard),
                                                                     address = string.Concat(restaurantSearchCriteria.Address, WildCard),
                                                                     addressComplement = string.Concat(restaurantSearchCriteria.AddressComplement, WildCard),
-                                                                    city = restaurantSearchCriteria.CityCode,
+                                                                    cityCode = restaurantSearchCriteria.CityCode,
                                                                     cityName = restaurantSearchCriteria.CityName,
+                                                                    manager = restaurantSearchCriteria.Manager
                                                                 },
                                                                 _dbContext.DbTransaction);
         }
+
+        public Restaurant GetByExternalId(string Id)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

@@ -11,6 +11,9 @@ using KitchenHeaven.FrameWork.Service.Interfaces;
 
 namespace KitchenHeaven.FrameWork.Service.Services
 {
+    /// <summary>
+    /// Class implementing business method related to Meal
+    /// </summary>
     public class MealService : IMealService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -19,6 +22,11 @@ namespace KitchenHeaven.FrameWork.Service.Services
 
         private readonly string connectionString;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unitOfWork">Imple</param>
+        /// <param name="iAPIAccessFactory"></param>
         public MealService(IUnitOfWork unitOfWork, IAPIAccessFactory iAPIAccessFactory)
         {
             _unitOfWork = unitOfWork;

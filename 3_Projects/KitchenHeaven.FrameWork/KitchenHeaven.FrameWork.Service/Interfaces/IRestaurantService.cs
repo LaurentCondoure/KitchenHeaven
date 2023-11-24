@@ -11,6 +11,7 @@ namespace KitchenHeaven.FrameWork.Service.Interfaces
 
         IEnumerable<Restaurant> GetAllByCriteria(RestaurantSearchCriteria restaurantSearchCriteria);
 
+        Restaurant GetById(int restaurantId);
 
     }
 }

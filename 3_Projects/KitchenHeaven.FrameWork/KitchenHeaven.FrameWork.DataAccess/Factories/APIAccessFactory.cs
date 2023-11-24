@@ -10,8 +10,8 @@ namespace KitchenHeaven.FrameWork.DataAccess.Factories
 {
     public class APIAccessFactory : IAPIAccessFactory
     {
-        private IOptionsSnapshot<APIConfiguration> _options;
-        public APIAccessFactory(IOptionsSnapshot<APIConfiguration> options)
+        private IAPIConfiguration _options;
+        public APIAccessFactory(IAPIConfiguration options)
         { 
             _options = options;
         }

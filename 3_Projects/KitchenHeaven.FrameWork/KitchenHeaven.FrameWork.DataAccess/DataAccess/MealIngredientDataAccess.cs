@@ -11,6 +11,9 @@ using KitchenHeaven.FrameWork.DataObject.Entities;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
+    /// <summary>
+    /// Classe instaciating methods to exchange data with DataBase focus on MealIngredient Entity
+    /// </summary>
     //public class MealIngredientDataAccess : BaseDataAccess, IMealIngredientDataAccess
     public class MealIngredientDataAccess : IMealIngredientDataAccess
     {
@@ -45,6 +48,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
                                                               , _dbContext.DbTransaction);
         }
 
+        #region not Implemented
         public IEnumerable<MealIngredient> GetAll()
         {
             throw new System.NotImplementedException();
@@ -59,7 +63,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         {
             throw new System.NotImplementedException();
         }
-
+        #endregion
 
     }
 }

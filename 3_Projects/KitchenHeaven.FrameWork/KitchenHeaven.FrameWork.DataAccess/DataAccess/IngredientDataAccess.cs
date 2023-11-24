@@ -11,6 +11,9 @@ using KitchenHeaven.FrameWork.DataObject.Entities;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
+    /// <summary>
+    /// Classe instaciating methods to exhange data with DataBase focus on IngredientEntity
+    /// </summary>
     public class IngredientDataAccess : IIngredientDataAccess
     {
         private IDbContext _dbContext;
@@ -18,7 +21,6 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         {
             _dbContext = dbContext;
         }
-
 
 
         #region IIngredientDataAccess
@@ -41,6 +43,16 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
                 return true;
         }
 
+        public IEnumerable<Ingredient> GetIngredientsByMealId(int mealId)
+        {
+            if (!CheckDbContext())
+                throw new Exception("Database connection is not initialized");
+            return _dbContext.DbConnection.Query<Ingredient>(IngredientQueries.GetByMealId
+                                                            , new { mealId = mealId }
+                                                            , _dbContext.DbTransaction);
+        }
+
+        #region not implemented
         public IEnumerable<Ingredient> GetAll()
         {
             throw new NotImplementedException();
@@ -55,15 +67,7 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         {
             throw new NotImplementedException();
         }
-
-        public IEnumerable<Ingredient> GetIngredientsByMealId(int mealId)
-        {
-            if (!CheckDbContext())
-                throw new Exception("Database connection is not initialized");
-            return _dbContext.DbConnection.Query<Ingredient>(IngredientQueries.GetByMealId
-                                                            , new { mealId = mealId }
-                                                            , _dbContext.DbTransaction);
-        }
+        #endregion
         #endregion
 
     }

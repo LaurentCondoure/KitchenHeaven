@@ -11,6 +11,9 @@ using KitchenHeaven.FrameWork.Service.Interfaces;
 
 namespace KitchenHeaven.FrameWork.Service.Services
 {
+    /// <summary>
+    /// Class implementing business method related to menu
+    /// </summary>
     public class MenuService : IMenuService
     {
         #region private properties

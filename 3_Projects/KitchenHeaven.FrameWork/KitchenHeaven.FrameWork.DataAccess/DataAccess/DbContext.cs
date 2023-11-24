@@ -4,6 +4,9 @@ using KitchenHeaven.FrameWork.DataAccess.Interfaces;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class DbContext : IDbContext
     {
         #region private properties

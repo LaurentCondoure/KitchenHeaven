@@ -11,6 +11,9 @@ using KitchenHeaven.FrameWork.DataObject.Entities;
 
 namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
 {
+    /// <summary>
+    /// Classe instaciating methods to exchange data with DataBase focus on Menu Entity
+    /// </summary>
     public class MenuDataAccess : IMenuDataAccess
     {
         #region private properties
@@ -54,6 +57,9 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
                                                                 , new { externalId = mealExternalId }
                                                                 , _dbContext.DbTransaction);
         }
+
+
+        #region not implemented
         public IEnumerable<Menu> GetAll()
         {
             throw new System.NotImplementedException();
@@ -68,6 +74,8 @@ namespace KitchenHeaven.FrameWork.DataAccess.DataAccess
         {
             throw new System.NotImplementedException();
         }
+        #endregion
+
         #endregion
 
     }

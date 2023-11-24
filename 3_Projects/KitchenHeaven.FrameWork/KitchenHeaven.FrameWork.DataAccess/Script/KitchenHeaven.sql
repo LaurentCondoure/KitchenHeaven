@@ -14,7 +14,8 @@ Meal (
 	category varchar(15),
 	area varchar(10),
 	instructions text,
-	image varchar(255)
+	image varchar(255),
+	miniature varchar(255)
 );
 
 CREATE TABLE IF NOT EXISTS

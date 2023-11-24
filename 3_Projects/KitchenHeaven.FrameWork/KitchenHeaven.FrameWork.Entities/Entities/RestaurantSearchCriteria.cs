@@ -8,5 +8,6 @@
         public string AddressComplement { get; set; }
         public string CityCode { get; set; }
         public string CityName { get; set; }
+        public string Manager { get; set; }
     }
 }

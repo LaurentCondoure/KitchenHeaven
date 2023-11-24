@@ -22,6 +22,8 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
                 (restaurantId, mealId)
               VALUS
                 (@restaurantId, @mealId);
+              select 
+                last_insert_rowid();
             ";
 
     }

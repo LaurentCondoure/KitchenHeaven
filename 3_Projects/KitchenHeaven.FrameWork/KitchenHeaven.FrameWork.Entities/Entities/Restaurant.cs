@@ -8,7 +8,7 @@
 
         public string Address { get; set; }
 
-        public string AddressCompelment { get; set; }
+        public string AddressComplement { get; set; }
 
         public string CityCode { get; set; }
 

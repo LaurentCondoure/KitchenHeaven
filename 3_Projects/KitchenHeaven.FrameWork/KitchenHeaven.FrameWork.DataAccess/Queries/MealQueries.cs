@@ -21,7 +21,14 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
 
         public const string GetByExternalIdAndRestaurantId =
             @"SELECT
-                meal.*
+                meal.[id],
+                meal.[externalId], 
+                meal.[name], 
+                meal.[Category], 
+                meal.[Area], 
+                meal.[instructions], 
+                meal.[image], 
+                meal.[miniature]
               FROM
                 Meal meal
               INNER JOIN
@@ -29,19 +36,21 @@ namespace KitchenHeaven.FrameWork.DataAccess.Queries
               INNER JOIN
                 Restaurant restaurant on menu.RestaurantId = restaurant.id
               WHERE
-                meal.externalId = @externalId;
+                meal.externalId = @externalId
               AND
-                restaurant.id = @restaurantId";
+                restaurant.id = @restaurantId;";
 
         public const string Add =
             @"INSERT INTO Meal
-                ([externalId], [name], [Category], [Area], [instructions], [image])
+                ([externalId], [name], [Category], [Area], [instructions], [image], [miniature])
               VALUES
-                (@externalId, @name, @category, @area, @instructions, @image);";
+                (@externalId, @name, @category, @area, @instructions, @image, @miniature);
+              select 
+                last_insert_rowid();";
 
         public const string GetByRestaurantId =
             @"SELECT
-                meal.id, meal.externalId, meal.[name], meal.[Category], meal.[Area], meal.[image]
+                meal.id, meal.externalId, meal.[name], meal.[Category], meal.[Area], meal.[image], meal.[miniature]
               FROM
                 Meal meal
               INNER JOIN Menu menu

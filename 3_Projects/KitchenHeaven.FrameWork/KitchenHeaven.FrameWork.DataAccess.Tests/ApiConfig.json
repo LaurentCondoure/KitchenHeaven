@@ -1,0 +1,30 @@
+{
+  "APIConfiguration": {
+    "General": {
+      "APIUrl": "https://www.themealdb.com/api/json/v1/",
+      "APIKey": "1"
+    },
+    "MealArea": {
+      "APIFilterMethod": "filter.php",
+      "APIListMethod": "list.php",
+      "APIArgument": "a"
+    },
+    "MealCategory": {
+      "APIFilterMethod": "filter.php",
+      "APIListMethod": "list.php",
+      "APIArgument": "c"
+    },
+    "MealIngredient": {
+      "APIFilterMethod": "filter.php",
+      "APIListMethod": "list.php",
+      "APIArgument": "i"
+    },
+    "Meal": {
+      "APINameFilterMethod": "search.php",
+      "APIIdFilterMethod": "lookup.php",
+      "APIFirstLetterArgument": "f",
+      "APINameArgument": "s",
+      "APIIdArgument": "i"
+    }
+  }
+}

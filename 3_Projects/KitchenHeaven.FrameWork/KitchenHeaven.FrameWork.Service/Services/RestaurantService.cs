@@ -1,10 +1,15 @@
 ﻿using KitchenHeaven.FrameWork.DataAccess.UOW;
 using KitchenHeaven.FrameWork.DataObject.Entities;
 using KitchenHeaven.FrameWork.Service.Interfaces;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 
 namespace KitchenHeaven.FrameWork.Service.Services
 {
+    /// <summary>
+    /// Class implementing business method related to restaurant
+    /// </summary>
     public class RestaurantService : IRestaurantService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -12,6 +17,9 @@ namespace KitchenHeaven.FrameWork.Service.Services
         private readonly IMenuService _menuService;
 
         private readonly string connectionString;
+
+        private readonly IConfigurationRoot _configurationRoot;
+
 
 
         public RestaurantService(IUnitOfWork unitOfWork, IMenuService menuService)
@@ -59,5 +67,30 @@ namespace KitchenHeaven.FrameWork.Service.Services
             }
             return restaurants;
         }
+
+        public Restaurant GetById(int restaurantId)
+        {
+            if (restaurantId <= 0)
+                throw new ArgumentException("externalId is not valid");
+            
+            Restaurant restaurant = null;
+
+            _unitOfWork.Begin(connectionString, false);
+
+            try
+            {
+                restaurant = _unitOfWork.GetRestaurantDataAccess().GetById(restaurantId);
+
+                _unitOfWork.Commit();
+            }
+            catch
+            {
+                _unitOfWork.Rollback();
+                throw;
+            }
+            return restaurant;
+        }
+
+
     }
 }
