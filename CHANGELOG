@@ -6,8 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
 
+## [1.2.4]
+### Added
+- 3-Projects/Remains - Known issues.docx
+
+### Modified
+- KitchenHeaven.FrameWork.API
+	_ Add serahcMeal in MealController
 ## [1.2.3]
 ### Added
 - KitchenHeaven.FrameWork.API

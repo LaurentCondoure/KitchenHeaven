@@ -22,7 +22,7 @@ namespace KitchenHeaven.API.Controllers
 
 
         [HttpGet]
-        public IActionResult FilterRestaurantMenu([FromBody] FilterType filterType)
+        public IActionResult GetFiltersByType([FromBody] FilterType filterType)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -33,7 +33,35 @@ namespace KitchenHeaven.API.Controllers
                 IEnumerable<MealFilterValue> filters = _mealService.GetFilters(filterType);
                 List<MealFilterValueModel> lstfilterModel = new List<MealFilterValueModel>();
                 filters.ToList().ForEach(filter => lstfilterModel.Add(MealFilterValueModel.GetModelFromObject(filter)));
-                return Ok(filters);
+                return Ok(lstfilterModel);
+            }
+            catch (SqliteException sqlException)
+            {
+                return StatusCode(500, "SQL ERROR =>" + sqlException.ToString());
+            }
+            catch (HttpRequestException sqlException)
+            {
+                return StatusCode(500, "RequestAPI ERROR =>" + sqlException.ToString());
+            }
+            catch (Exception exc)
+            {
+                return StatusCode(500, "Server ERROR =>" + exc.ToString());
+            }
+        }
+
+        [HttpPost]
+        public IActionResult SearchMeal([FromBody] MealFilterValueModel mealFilterValueModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                MealFilterValue mealFilterValue = mealFilterValueModel.GetObjectFromModel();
+                IEnumerable<Meal> meals = _mealService.Search(mealFilterValue);
+                List<MealModel> lstmealModel = new List<MealModel>();
+                meals.ToList().ForEach(meal => lstmealModel.Add(MealModel.GetModelFromObject(meal)));
+                return Ok(lstmealModel);
             }
             catch (SqliteException sqlException)
             {
@@ -49,4 +77,4 @@ namespace KitchenHeaven.API.Controllers
             }
         }
     }
-}}
+}
